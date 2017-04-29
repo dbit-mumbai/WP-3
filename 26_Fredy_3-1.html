@@ -1,0 +1,241 @@
+<!doctype html>
+<html>
+<head>
+<style>
+input[type=submit]{
+    width: 50%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+	box-shadow: inset 0 0 15px rgba(000,000,000, 5.5);
+}
+
+input[type=reset] {
+    width: 50%;
+    background-color: #ff7373;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+	box-shadow: inset 0 0 15px rgba(000,000,000, 5.5);
+}
+input[type=submit]:hover{
+    background-color:green;
+}
+input[type=reset]:hover{
+    background-color:red;
+}
+body{
+	background: -webkit-linear-gradient(bottom right, blue, red);
+	background: -o-linear-gradient(bottom right, blue, red);
+	background: -moz-linear-gradient(bottom right, blue, red);
+	background: linear-gradient(bottom right, blue, red);
+	color:white; 
+	font-family:arial;
+  }
+select {
+		border: 0;
+        	appearance:none;
+		background: red;
+		width: 150px;
+		text-indent: 10px;
+		color: white;
+		font-size:15px;
+		font-weight:bold;
+		border-radius: 50px;
+		padding: 0px;
+		box-shadow: inset 0 0 10px rgba(000,000,000, 5.5);
+	}
+
+}
+	
+</style>
+<title>
+Staff Details
+</title>
+<script type=text/javascript>
+function validateForm() {
+  	var x = document.forms["f1"]["fname"].value;
+	var y = document.forms["f1"]["mname"].value;
+	var z = document.forms["f1"]["sname"].value;
+	var email = document.forms["f1"]["email"].value;
+    	var t_exp = document.forms["f1"]["t_exp"].value;
+   	var i_exp = document.forms["f1"]["i_exp"].value;
+	var degree = document.forms["f1"]["degree"].value;
+	var dept = document.forms["f1"]["dept"].value;
+	var role = document.forms["f1"]["role"].value;
+	var proj01 = document.forms["f1"]["proj01"].value;
+	var inp = /^[A-Za-z]+$/;
+	if (x == "")
+	{
+        alert("Name cannot be blank");
+	document.getElementByID("fname").focus();
+        return false;
+    	}
+	
+	if (!x.match(inp))
+	{
+		alert("Invalid First Name");
+		document.getElementByID("fname").focus();
+		return false;
+	}
+	if (!y.match(inp))
+	{
+		alert("Invalid Middle Name");
+		document.getElementByID("mname").focus();
+		return false;
+	}
+	if (!z.match(inp))
+	{
+		alert("Invalid Surname");
+		document.getElementByID("sname").focus();
+		return false;
+	}
+	if (email == "")
+	{
+		alert("Email must be filled");
+		document.getElementByID("email").focus();
+		return false;
+	}
+	if(degree == "Select")
+	{
+		alert("Select a degree");
+		document.getElementByID("degree").focus();
+		return false;
+	}
+	if(dept == "Select")
+	{
+		alert("Select a department");
+		document.getElementByID("dept").focus();
+		return false;
+	}
+	if(role == "Select")
+	{
+		alert("Select a role");
+		document.getElementByID("role").focus();
+		return false;
+	}
+	if(proj01 == "")
+	{
+		alert("There should be atleast one project");
+		document.getElementByID("proj01").focus();
+		return false;
+	}
+
+}
+</script>
+</head>
+<body>
+<p style="text-align:center;font-family:Sans Serif;background-color:black;color:white;font-stretch:expanded;font-weight:bold" height="75"><font size="25">Don Bosco Institute of Technology, Kurla</font>
+<div id="d1" style="background-color:black">
+<h1 style="text-align:center;font-family:Arial">STAFF DETAILS</h1>
+</div>
+<center>
+<table>
+<form name="f1" onsubmit="return validateForm()">
+<tr>
+<td><h3>Enter your name</h3></td>
+<td>
+<input type="text" id="fname" placeholder="First name">
+<input type="text" name="mname" placeholder="Middle name">
+<input type="text" name="sname" placeholder="Surname">
+</td>
+</tr>
+<tr>
+<td><h3>E-mail</h3></td>
+<td><input type="email" name="email"></td>
+</tr>
+<tr>
+<td><h3>Select photo</h3></td>
+<td><input type="file" name="photo"></td>
+</tr>
+
+<tr>
+<td><h3>Degree</h3></td>
+<td>
+<select id="degree">
+<option selected="~Select" disabled="~Select">Select</option>
+<option>PhD</option>
+<option>M.E./M.Tech</option>
+<option>B.E./B.Tech</option>
+<option>B.Sc</option>
+<option>M.Sc</option>
+</select>
+</td>
+</tr>
+<tr>
+<td><h3>Teaching Experience</h3></td>
+<td><input type="number" min="0" max="50" name="t_exp"></td>
+</tr>
+<tr>
+<td><h3>Industrial Experience</h3></td>
+<td><input type="number" min="0" max="50" name="i_exp"></td>
+</tr>
+<tr>
+<td><h3>Select Department:</h3><br></td>
+<td>
+<select id="dept">
+<option selected="~Select" disabled="~Select">Select</option>
+<option>IT</option>
+<option>COMPS</option>
+<option>EXTC</option>
+<option>MECH</option>
+</select>
+</td>
+</tr>
+<tr>
+<td><h3>Designation/Role</h3></td>
+<td>
+<select id="role">
+<option selected="~Select" disabled="~Select">Select</option>
+<option>Professor</option>
+<option>Asst. Professor</option>
+<option>Lab Asst.</option>
+</select>
+</td>
+</tr>
+<tr>
+<td><h3>Projects</h3></td>
+<td>
+<table>
+<tr>
+<td><p style="text-align:center"><h3>Title</h3></td>
+<td><p style="text-align:center"><h3>Description</h3></td>
+</tr>
+<tr>
+<td><input type="text" id="proj01"></td>
+<td><textarea></textarea></td>
+</tr>
+<tr>
+<td><input type="text" id="proj02"></td>
+<td><textarea></textarea></td>
+</tr>
+<tr>
+<td><input type="text" id="proj03"></td>
+<td><textarea></textarea></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><h3>Select start date</h3></td>
+<td><input type="date"></td>
+</tr>
+<tr>
+<td><h3>Select end date</h3></td>
+<td><input type="date"></td>
+</tr>
+
+</table>
+<input type="submit" value="Submit">
+<input type="reset" value="Reset">
+</center>
+</form>
+</body>
+</html>
